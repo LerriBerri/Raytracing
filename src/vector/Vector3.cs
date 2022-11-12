@@ -9,11 +9,11 @@ namespace Raytracing
     */
     class Vector3
     {
-        public int x;
-        public int y;
-        public int z;
+        public double x;
+        public double y;
+        public double z;
 
-        public Vector3(int x, int y, int z)
+        public Vector3(double x, double y, double z)
         {
             this.x = x;
             this.y = y;
