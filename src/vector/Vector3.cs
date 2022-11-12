@@ -79,5 +79,28 @@ namespace Raytracing
         {
             return vector1.x * vector2.x + vector1.y * vector2.y + vector1.z * vector2.z;
         }
+
+        /**
+        <summary>
+        Returns the cross product of the two passed vectors. It is the Vector perpendicular to vector1 and vector2. If the vectors are parallel the cross product is 0.
+        The formula for computing the cross product of any two vectors is:
+        a x b = ||a||*||b||*sin(angle)*n
+        ||a|| is the magnitude of the first vector. ||b|| is the magnitude of the second vector.
+        the angle is the angle between vector a and b.
+        n is the Vector perpendicular to a and b.
+        the cross product is anticommutativ
+        <example>
+        which means if a x b = c then b x a = -c
+        </example>
+        </summary>
+        */
+        public static Vector3 CrossProduct(Vector3 vector1, Vector3 vector2)
+        {
+            double s1 = vector1.y * vector2.z - vector1.z * vector2.y;
+            double s2 = vector1.z * vector2.x - vector1.x * vector2.z;
+            double s3 = vector1.x * vector2.y - vector1.y * vector2.x;
+
+            return new Vector3(s1, s2, s3);
+        }
     }
 }
