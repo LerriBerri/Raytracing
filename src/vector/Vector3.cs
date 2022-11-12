@@ -65,5 +65,19 @@ namespace Raytracing
 
             return this;
         }
+
+        /**
+        <summary>
+        Returns the dot product of two vectors. It is computed by multiplying the x value from both vectors the y values from both vectors and the z values from both vectors and adding the results.
+        For any two vectors the formula for the dot product is:
+        a * b = ||a||*||b||*cos(angle)
+        ||a|| is the magnitude of the first vector. ||b|| is the magnitude of the second vector.
+        If the dot product is 0 the two vectors are PI / 2 radians apart.
+        </summary>
+        */
+        public static double DotProduct(Vector3 vector1, Vector3 vector2)
+        {
+            return vector1.x * vector2.x + vector1.y * vector2.y + vector1.z * vector2.z;
+        }
     }
 }
