@@ -48,5 +48,22 @@ namespace Raytracing
 
             return this;
         }
+
+        /**
+        <summary>
+        Multiplies the x, y and z vlaue with the factor parameter.
+        </summary>
+        <returns>
+        Returns itself after multiplying the values.
+        </returns>
+        */
+        public Vector3 Mult(double fac)
+        {
+            x *= fac;
+            y *= fac;
+            z *= fac;
+
+            return this;
+        }
     }
 }
