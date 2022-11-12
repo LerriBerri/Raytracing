@@ -25,10 +25,28 @@ namespace Raytracing
         Initializes the vector with x, y and z set to 0.
         </summary>
         */
-        public Vector3() {
+        public Vector3()
+        {
             this.x = 0;
             this.y = 0;
             this.z = 0;
+        }
+
+        /**
+        <summary>
+        Adds to the x, y and z coordinates the x, y and z coordinates of the vector parameter.
+        </summary>
+        <returns>
+        Return itself after adding the vector parameter.
+        </returns>
+        */
+        public Vector3 Add(Vector3 vector)
+        {
+            x += vector.x;
+            y += vector.y;
+            z += vector.z;
+
+            return this;
         }
     }
 }
