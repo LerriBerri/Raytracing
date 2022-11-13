@@ -34,36 +34,31 @@ namespace Raytracing
 
         /**
         <summary>
-        Adds to the x, y and z coordinates the x, y and z coordinates of the vector parameter.
+        Adds the x, y and z values of the two vectors and returns a new one.
         </summary>
-        <returns>
-        Return itself after adding the vector parameter.
-        </returns>
         */
-        public Vector3 Add(Vector3 vector)
+        public static Vector3 Add(Vector3 vector1, Vector3 vector2)
         {
-            x += vector.x;
-            y += vector.y;
-            z += vector.z;
-
-            return this;
+            return new Vector3(vector1.x + vector2.x, vector1.y + vector2.y, vector1.z + vector2.z);
         }
 
         /**
         <summary>
-        Multiplies the x, y and z vlaue with the factor parameter.
+        Subtracts the x, y and z values of the the first vector from the x, y and z values of the second vector and returns a new vector.
         </summary>
-        <returns>
-        Returns itself after multiplying the values.
-        </returns>
+        */
+        public static Vector3 Sub(Vector3 vector1, Vector3 vector2) {
+            return new Vector3(vector1.x - vector2.x, vector1.y - vector2.y, vector1.z - vector2.z);
+        }
+
+        /**
+        <summary>
+        Multiplies the x, y and z vlaue with the factor parameter and returns a new Vector.
+        </summary>
         */
         public Vector3 Mult(double fac)
         {
-            x *= fac;
-            y *= fac;
-            z *= fac;
-
-            return this;
+            return new Vector3(x * fac, y * fac, z * fac);
         }
 
         /**
