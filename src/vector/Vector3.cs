@@ -44,6 +44,15 @@ namespace Raytracing
 
         /**
         <summary>
+        Subtracts the x, y and z values of the the first vector from the x, y and z values of the second vector and returns a new vector.
+        </summary>
+        */
+        public static Vector3 Sub(Vector3 vector1, Vector3 vector2) {
+            return new Vector3(vector1.x - vector2.x, vector1.y - vector2.y, vector1.z - vector2.z);
+        }
+
+        /**
+        <summary>
         Multiplies the x, y and z vlaue with the factor parameter and returns a new Vector.
         </summary>
         */
