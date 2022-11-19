@@ -44,5 +44,15 @@ namespace Raytracing
             pX.Mult((distance * Math.Tan(fOVX / 2)) / mag);
             pY.Mult((distance * Math.Tan(fOVY / 2)) / mag);
         }
+
+        public Vector3 GetPointingTo(int x, int y) {
+            x -= resX / 2;
+            y -= resY / 2;
+
+            int facX = x / (resX / 2);
+            int facY = y / (resY / 2);
+
+            return Vector3.Add(Vector3.Add(pos, dir.Mult(distance)), Vector3.Add(pX.Mult(facX), pY.Mult(facY)));
+        }
     }
 }
