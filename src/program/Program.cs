@@ -1,12 +1,12 @@
-﻿using System;
-
 namespace Raytracing
 {
-    class Program
+    static class Program
     {
-        static void Main(string[] args)
+        [STAThread]
+        static void Main()
         {
-            
+            ApplicationConfiguration.Initialize();
+            Application.Run(new MainForm());
         }
     }
 }
