@@ -27,7 +27,7 @@ namespace Raytracing
             this.distance = distance;
 
             this.fOVX = fOV;
-            fOVY = fOVX * (resX / resY);
+            fOVY = fOVX * ((double) resX / resY);
 
             CalculateScreenVectors();
         }
