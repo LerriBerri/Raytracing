@@ -28,6 +28,8 @@ namespace Raytracing
 
             this.fOVX = fOV;
             fOVY = fOVX * (resX / resY);
+
+            CalculateScreenVectors();
         }
 
         private void CalculateScreenVectors() {
