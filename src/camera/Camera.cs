@@ -10,7 +10,7 @@ namespace Raytracing
         double fOVY;
         double distance;
 
-        Vector3 pos;
+        public Vector3 pos;
         Vector3 dir;
 
         Vector3 pX;
