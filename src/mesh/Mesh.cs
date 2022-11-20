@@ -24,7 +24,7 @@ namespace Raytracing
                 double d = triangles[i].GetIntersection(l0, l1);
                 if(d == -1)
                     continue;
-                if(d == -1 || d < smallestDistance)
+                if(smallestDistance == -1 || d < smallestDistance)
                 {
                     smallestDistance = d;
                     nearestTriangle = triangles[i];
