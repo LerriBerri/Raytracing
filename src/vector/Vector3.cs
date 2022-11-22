@@ -97,5 +97,56 @@ namespace Raytracing
 
             return new Vector3(s1, s2, s3);
         }
+
+        /**
+        <summary>
+        Rotates the vector around the x axes.
+        </summary>
+        */
+        public void RotateX(double angle)
+        {
+            double sin = Math.Sin(angle);
+            double cos = Math.Cos(angle);
+
+            double prevY = y;
+            double prevZ = z;
+
+            y = prevY * cos - prevZ * sin;
+            z = prevY * sin + prevZ * cos;
+        }
+
+        /**
+        <summary>
+        Rotates the vector around the y axes.
+        </summary>
+        */
+        public void RotateY(double angle)
+        {
+            double sin = Math.Sin(angle);
+            double cos = Math.Cos(angle);
+
+            double prevX = x;
+            double prevZ = z;
+
+            x = prevX * cos - prevZ * sin;
+            z = prevX * sin + prevZ * cos;
+        }
+
+        /**
+        <summary>
+        Rotates the vector around the y axes.
+        </summary>
+        */
+        public void RotateZ(double angle)
+        {
+            double sin = Math.Sin(angle);
+            double cos = Math.Cos(angle);
+
+            double prevX = x;
+            double prevY = y;
+
+            x = prevX * cos - prevY * sin;
+            y = prevX * sin + prevY * cos;
+        }
     }
 }
