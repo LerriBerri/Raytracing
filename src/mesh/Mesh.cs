@@ -32,5 +32,44 @@ namespace Raytracing
             }
             return nearestTriangle;
         }
+
+        /**
+        <summary>
+        Rotates the mesh around the x axes.
+        </summary>
+        */
+        public void RotateX(double angle)
+        {
+            for(int i = 0; i < triangles.Length; i++)
+            {
+                triangles[i].RotateX(angle);
+            }
+        }
+
+        /**
+        <summary>
+        Rotates the mesh around the y axes.
+        </summary>
+        */
+        public void RotateY(double angle)
+        {
+            for(int i = 0; i < triangles.Length; i++)
+            {
+                triangles[i].RotateY(angle);
+            }
+        }
+
+        /**
+        <summary>
+        Rotates the mesh around the z axes.
+        </summary>
+        */
+        public void RotateZ(double angle)
+        {
+            for(int i = 0; i < triangles.Length; i++)
+            {
+                triangles[i].RotateZ(angle);
+            }
+        }
     }
 }
