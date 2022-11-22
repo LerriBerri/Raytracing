@@ -66,5 +66,50 @@ namespace Raytracing
             
             return t;
         }
+
+        /**
+        <summary>
+        Rotates the triangle around the x axes.
+        </summary>
+        */
+        public void RotateX(double angle)
+        {
+            p0.RotateX(angle);
+            p1.RotateX(angle);
+            p2.RotateX(angle);
+
+            p01 = Vector3.Sub(p1, p0);
+            p02 = Vector3.Sub(p2, p0);
+        }
+
+        /**
+        <summary>
+        Rotates the triangle around the y axes.
+        </summary>
+        */
+        public void RotateY(double angle)
+        {
+            p0.RotateY(angle);
+            p1.RotateY(angle);
+            p2.RotateY(angle);
+
+            p01 = Vector3.Sub(p1, p0);
+            p02 = Vector3.Sub(p2, p0);
+        }
+
+        /**
+        <summary>
+        Rotates the triangle around the z axes.
+        </summary>
+        */
+        public void RotateZ(double angle)
+        {
+            p0.RotateZ(angle);
+            p1.RotateZ(angle);
+            p2.RotateZ(angle);
+
+            p01 = Vector3.Sub(p1, p0);
+            p02 = Vector3.Sub(p2, p0);
+        }
     }
 }
