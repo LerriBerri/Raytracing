@@ -37,7 +37,8 @@ namespace Raytracing
         Return a copy of the vector object.
         </summary>
         */
-        public Vector3 Copy() {
+        public Vector3 Copy() 
+        {
             return new Vector3(x, y, z);
         }
 
