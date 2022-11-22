@@ -34,6 +34,15 @@ namespace Raytracing
 
         /**
         <summary>
+        Return a copy of the vector object.
+        </summary>
+        */
+        public Vector3 Copy() {
+            return new Vector3(x, y, z);
+        }
+
+        /**
+        <summary>
         Adds the x, y and z values of the two vectors and returns a new one.
         </summary>
         */
