@@ -24,7 +24,7 @@ namespace Raytracing
             graphicsTimer.Interval = 1;
             graphicsTimer.Tick += GraphicsTimer_Tick;
 
-            cam = new Camera(res, new Vector3(-4, 0, 0), Math.PI/2);
+            cam = new Camera(res, new Vector3(-4, 0, 0), Math.PI / 2);
 
             cube = new Mesh(new Triangle[] {
                 //neg X side
@@ -57,19 +57,27 @@ namespace Raytracing
         {
             //Paint
             Graphics g = e.Graphics;
-            Brush br = new SolidBrush(Color.White);
+
             for (int x = 0; x < res.X; x++)
             {
                 for (int y = 0; y < res.Y; y++)
                 {
                     Triangle triangle = cube.GetNearesIntersection(cam.pos, Vector3.Add(cam.pos, cam.GetPointingTo(x, y)));
                     if (triangle != null)
+                    {
+                        int brightness = (int)((1 - triangle.angleBetweenSun / Math.PI) * 255);
+
+                        Brush br = new SolidBrush(Color.FromArgb(brightness, brightness, brightness));
                         g.FillRectangle(br, x, y, 1, 1);
+                        br.Dispose();
+                    }
                 }
             }
 
             cube.RotateX(.1);
             cube.RotateZ(.2);
+
+            cube.Update();
         }
 
         private void GraphicsTimer_Tick(object sender, EventArgs e)

@@ -12,13 +12,19 @@ namespace Raytracing
     */
     class Triangle
     {
+        private static Vector3 POINTINGTOLIGHT = new Vector3(1 / Math.Sqrt(5), 2 / Math.Sqrt(5), 0);
+
         public Vector3 p0;
         public Vector3 p1;
         public Vector3 p2;
         private Vector3 p01;
         private Vector3 p02;
 
-        public Triangle(Vector3 p0, Vector3 p1, Vector3 p2) {
+        private Vector3 normal;
+        public double angleBetweenSun;
+
+        public Triangle(Vector3 p0, Vector3 p1, Vector3 p2)
+        {
             this.p0 = p0;
             this.p1 = p1;
             this.p2 = p2;
@@ -41,7 +47,8 @@ namespace Raytracing
         d is the returned value.
         </returns>
         */
-        public double GetIntersection(Vector3 l0, Vector3 l1) {
+        public double GetIntersection(Vector3 l0, Vector3 l1)
+        {
             Vector3 l01 = Vector3.Sub(l1, l0);
 
             double den = Vector3.DotProduct(l01.Mult(-1), Vector3.CrossProduct(p01, p02));
@@ -53,18 +60,41 @@ namespace Raytracing
             double vNum = Vector3.DotProduct(Vector3.CrossProduct(l01.Mult(-1), p01), Vector3.Sub(l0, p0));
             double v = vNum / den;
 
-            if(u < 0 || v < 0)
+            if (u < 0 || v < 0)
                 return -1;
-            if(u + v > 1)
+            if (u + v > 1)
                 return -1;
 
             double tNum = Vector3.DotProduct(Vector3.CrossProduct(p01, p02), Vector3.Sub(l0, p0));
             double t = tNum / den;
 
-            if(t < 0)
+            if (t < 0)
                 return -1;
-            
+
             return t;
+        }
+
+        private void CalculateNormal()
+        {
+            normal = Vector3.CrossProduct(p01, p02);
+
+            double fac = 1 / Math.Sqrt(normal.x * normal.x + normal.y * normal.y + normal.z * normal.z);
+
+            normal.x *= fac;
+            normal.y *= fac;
+            normal.z *= fac;
+        }
+
+        /**
+        <summary>
+        Updates the angle between sun.
+        </summary>
+        */
+        public void Update()
+        {
+            CalculateNormal();
+
+            angleBetweenSun = Math.Acos(Vector3.DotProduct(normal, POINTINGTOLIGHT));
         }
 
         /**
