@@ -12,6 +12,8 @@ namespace Raytracing
     */
     class Triangle
     {
+        private static Vector3 POINTINGTOLIGHT = new Vector3(1 / Math.Sqrt(5), 2 / Math.Sqrt(5), 0);
+
         public Vector3 p0;
         public Vector3 p1;
         public Vector3 p2;
@@ -19,6 +21,7 @@ namespace Raytracing
         private Vector3 p02;
 
         private Vector3 normal;
+        private double angleBetweenSun;
 
         public Triangle(Vector3 p0, Vector3 p1, Vector3 p2)
         {
@@ -80,6 +83,18 @@ namespace Raytracing
             normal.x *= fac;
             normal.y *= fac;
             normal.z *= fac;
+        }
+
+        /**
+        <summary>
+        Updates the angle between sun.
+        </summary>
+        */
+        public void Update()
+        {
+            CalculateNormal();
+
+            angleBetweenSun = Math.Acos(Vector3.DotProduct(normal, POINTINGTOLIGHT));
         }
 
         /**
