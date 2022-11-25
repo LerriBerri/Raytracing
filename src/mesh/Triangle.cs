@@ -21,7 +21,7 @@ namespace Raytracing
         private Vector3 p02;
 
         private Vector3 normal;
-        private double angleBetweenSun;
+        public double angleBetweenSun;
 
         public Triangle(Vector3 p0, Vector3 p1, Vector3 p2)
         {
