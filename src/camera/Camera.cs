@@ -11,7 +11,7 @@ namespace Raytracing
 
         public Vector3 pos;
 
-        public Camera(Point res, Vector3 pos, Vector3 dir, double fOV)
+        public Camera(Point res, Vector3 pos, double fOV)
         {
             resX = res.X;
             resY = res.Y;
