@@ -35,6 +35,17 @@ namespace Raytracing
 
         /**
         <summary>
+        Updates every triangle.
+        </summary>
+        */
+        public void Update() {
+            for(int i = 0; i < triangles.Length; i++) {
+                triangles[i].Update();
+            }
+        }
+
+        /**
+        <summary>
         Rotates the mesh around the x axes.
         </summary>
         */
